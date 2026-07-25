@@ -121,10 +121,10 @@ class SelectGameText(UIText):
 class GameTileButton(UIImageButton):
     def __init__(self, master, pos_id, importer_id):
         super().__init__(
-            x=125+pos_id*206,
+            x=125+pos_id*170,
             y=600,
             button_image_path='game-tile-background.png',
-            width=184,
+            width=154,
             height=102,
             button_normal_opacity=0.35,
             button_hover_opacity=0.65,
@@ -132,7 +132,7 @@ class GameTileButton(UIImageButton):
             button_normal_brightness=1,
             button_selected_brightness=1,
             bg_image_path=f'game-tile-{importer_id.lower()}.png',
-            bg_width=180,
+            bg_width=150,
             bg_height=100,
             bg_normal_opacity=0.75,
             bg_hover_opacity=0.75,
@@ -143,7 +143,7 @@ class GameTileButton(UIImageButton):
             master=master)
 
         self.eye_button_image = self.put(UIImageButton(
-            x=self._x + 72, y=self._y - 36,
+            x=self._x + 50, y=self._y - 36,
             button_image_path='eye-show.png',
             width=28,
             height=28,

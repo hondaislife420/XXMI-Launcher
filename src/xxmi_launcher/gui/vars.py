@@ -10,8 +10,11 @@ import core.config_manager as Config
 from core import package_manager
 from core.packages import launcher_package
 from core.packages.model_importers import wwmi_package
+from core.packages.model_importers import efmi_package
+from core.packages.model_importers import sdmi_package
 from core.packages.model_importers import zzmi_package
 from core.packages.model_importers import srmi_package
+from core.packages.model_importers import himi_package
 from core.packages.model_importers import gimi_package
 
 
@@ -177,5 +180,7 @@ Settings: AppSettings = AppSettings()
 Launcher: launcher_package.LauncherManagerConfig
 Packages: package_manager.PackageManagerConfig
 Importers: Config.ImportersConfig
-Active: Union[wwmi_package.WWMIPackageConfig, zzmi_package.ZZMIPackageConfig,
-              srmi_package.SRMIPackageConfig, gimi_package.GIMIPackageConfig]
+Active: Union[gimi_package.GIMIPackageConfig, srmi_package.SRMIPackageConfig,
+                zzmi_package.ZZMIPackageConfig, wwmi_package.WWMIPackageConfig,
+                himi_package.HIMIPackageConfig, efmi_package.EFMIPackageConfig,
+                sdmi_package.SDMIPackageConfig,]

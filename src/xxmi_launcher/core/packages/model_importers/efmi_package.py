@@ -96,7 +96,6 @@ class EFMIPackage(ModelImporterPackage):
             exit_after_update=False,
             installation_path='EFMI/',
             requirements=['XXMI'],
-            required_versions={'XXMI': '1.7.5'},
         ))
         self.autodetect_patterns = {
             'common': re.compile(r'([a-zA-Z]:[^:\"\']*EndField[^:\"\']*)'),

@@ -43,11 +43,11 @@ class GeneralSettingsFrame(UIScrollableFrame):
         self.put(ProcessOptionsFrame(self)).grid(row=3, column=1, padx=(0, 20), pady=(0, 30), sticky='w', columnspan=3)
 
         # Auto Config
-        if Vars.Launcher.active_importer.get() not in ['SRMI', 'HIMI', 'EFMI']:
+        if Vars.Launcher.active_importer.get() not in ['SRMI', 'HIMI', 'EFMI', 'SDMI']:
             self.put(AutoConfigLabel(self)).grid(row=4, column=0, padx=(20, 10), pady=(0, 30), sticky='w')
             self.put(AutoConfigFrame(self)).grid(row=4, column=1, padx=(0, 20), pady=(0, 30), sticky='w', columnspan=3)
 
-        if Vars.Launcher.active_importer.get() not in ['ZZMI', 'EFMI']:
+        if Vars.Launcher.active_importer.get() not in ['ZZMI', 'EFMI', 'SDMI']:
             
             # Tweaks
             self.put(TweaksLabel(self)).grid(row=5, column=0, padx=(20, 10), pady=(0, 30), sticky='w')
@@ -436,13 +436,13 @@ class LaunchOptionsButton(UIButton):
             )
 
     def open_docs(self):
-        if Config.Launcher.active_importer == 'WWMI':
+        if Config.Launcher.active_importer in ['WWMI', 'SDMI']:
             webbrowser.open('https://dev.epicgames.com/documentation/en-us/unreal-engine/command-line-arguments?application_version=4.27')
         elif Config.Launcher.active_importer in ['GIMI', 'SRMI', 'ZZMI', 'HIMI', 'EFMI']:
             webbrowser.open('https://docs.unity3d.com/Manual/PlayerCommandLineArguments.html')
 
     def get_tooltip(self):
-        if Config.Launcher.active_importer == 'WWMI':
+        if Config.Launcher.active_importer in ['WWMI', 'SDMI']:
             engine = 'UE4'
         elif Config.Launcher.active_importer in ['GIMI', 'SRMI', 'ZZMI', 'HIMI', 'EFMI']:
             engine = 'Unity'

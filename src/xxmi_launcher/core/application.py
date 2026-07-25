@@ -34,6 +34,7 @@ from core.packages.model_importers.wwmi_package import WWMIPackage
 from core.packages.model_importers.zzmi_package import ZZMIPackage
 from core.packages.model_importers.himi_package import HIMIPackage
 from core.packages.model_importers.efmi_package import EFMIPackage
+from core.packages.model_importers.sdmi_package import SDMIPackage
 
 
 @dataclass
@@ -265,6 +266,7 @@ class Application:
             ZZMIPackage(),
             EFMIPackage(),
             HIMIPackage(),
+            SDMIPackage(),
         ]
 
         self.package_manager = PackageManager(self.packages)
@@ -399,7 +401,7 @@ class Application:
         else:
             game_folder = path
 
-        for package_name in ['WWMI', 'ZZMI', 'SRMI', 'GIMI', 'HIMI', 'EFMI']:
+        for package_name in ['WWMI', 'ZZMI', 'SRMI', 'GIMI', 'HIMI', 'EFMI', 'SDMI']:
             package = self.package_manager.get_package(package_name)
             if not isinstance(package, ModelImporterPackage):
                 raise ValueError(f'Package {package.metadata.package_name} is not ModelImporterPackage!')
@@ -577,7 +579,7 @@ class Application:
 
     def get_launch_counters_from_log(self, exclude_failed = True):
         with (open(Paths.App.Root / 'XXMI Launcher Log.txt', 'r', encoding='utf-8', errors='ignore') as f):
-            launch_counters = { 'GIMI': 0, 'SRMI': 0,  'WWMI': 0, 'ZZMI': 0, 'HIMI': 0, 'EFMI': 0 }
+            launch_counters = { 'GIMI': 0, 'SRMI': 0,  'WWMI': 0, 'ZZMI': 0, 'HIMI': 0, 'EFMI': 0, 'SDMI': 0 }
 
             def parse_active_package(line):
                 if 'Loaded package:' in line:

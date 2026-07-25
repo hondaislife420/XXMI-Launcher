@@ -20,6 +20,7 @@ from core.packages.model_importers import srmi_package
 from core.packages.model_importers import wwmi_package
 from core.packages.model_importers import zzmi_package
 from core.packages.model_importers import himi_package
+from core.packages.model_importers import sdmi_package
 from core.packages.model_importers import efmi_package
 
 log = logging.getLogger(__name__)
@@ -33,6 +34,7 @@ class ImportersConfig:
     SRMI: srmi_package.SRMIPackageConfig = field(default_factory=lambda: srmi_package.SRMIPackageConfig())
     GIMI: gimi_package.GIMIPackageConfig = field(default_factory=lambda: gimi_package.GIMIPackageConfig())
     HIMI: himi_package.HIMIPackageConfig = field(default_factory=lambda: himi_package.HIMIPackageConfig())
+    SDMI: sdmi_package.SDMIPackageConfig = field(default_factory=lambda: sdmi_package.SDMIPackageConfig())
 
 
 @dataclass
@@ -74,7 +76,8 @@ class AppConfig:
     @property
     def Active(self) -> Union[gimi_package.GIMIPackageConfig, srmi_package.SRMIPackageConfig,
                               zzmi_package.ZZMIPackageConfig, wwmi_package.WWMIPackageConfig,
-                              himi_package.HIMIPackageConfig, efmi_package.EFMIPackageConfig]:
+                              himi_package.HIMIPackageConfig, efmi_package.EFMIPackageConfig,
+                              sdmi_package.SDMIPackageConfig]:
         global Active
         return Active
 
@@ -328,7 +331,8 @@ Packages: package_manager.PackageManagerConfig
 Importers: ImportersConfig
 Active: Union[gimi_package.GIMIPackageConfig, srmi_package.SRMIPackageConfig,
               wwmi_package.WWMIPackageConfig, zzmi_package.ZZMIPackageConfig,
-              himi_package.HIMIPackageConfig, efmi_package.EFMIPackageConfig]
+              himi_package.HIMIPackageConfig, efmi_package.EFMIPackageConfig,
+              sdmi_package.SDMIPackageConfig]
 
 
 def get_resource_path(element, filename: Union[str, Path], extensions: Optional[Union[str, List[str]]] = None):

@@ -140,6 +140,7 @@ class ImporterSelectButton(UIImageButton):
             'GIMI': L('top_bar_gimi_button_tooltip', 'Genshin Impact Model Importer'),
             'HIMI': L('top_bar_himi_button_tooltip', 'Honkai Impact Model Importer'),
             'EFMI': L('top_bar_efmi_button_tooltip', 'Arknights: Endfield Model Importer'),
+            'SDMI': L('top_bar_sdmi_button_tooltip', 'Mongil: Stardive'),
         }
         self.set_tooltip(tooltips[importer_id], delay=0.5)
 
