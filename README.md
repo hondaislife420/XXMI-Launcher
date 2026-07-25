@@ -1,3 +1,6 @@
+THIS IS A FORK MADE FOR SDMI
+https://github.com/hondaislife420/SDMI-Package
+
 <h1 align="center">XXMI Launcher</h1>
 
 <h4 align="center">Launcher tool for XXMI</h4>

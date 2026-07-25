@@ -94,10 +94,12 @@ class SDMIPackage(ModelImporterPackage):
         super().__init__(PackageMetadata(
             package_name='SDMI',
             auto_load=False,
+            github_repo_owner='hondaislife420',
             github_repo_name='SDMI-Package',
             asset_version_pattern=r'.*(\d\.\d\.\d).*',
             asset_name_format='SDMI-Package-v%s.zip',
             signature_pattern=r'^## Signature[\r\n]+- ((?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}={2})$)',
+            signature_public_key='MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEAAJ1/6g4OGFNW+77YolSYtVd4j8STOyPIxdJNU7ifNWankRpZ1/DS0kxgQa5LpxrxIZQiqgRTewzzMiLWUZlvDGu+9RK7mlrV0/Ucl7ujlyjjHQnIKj957Q10ytw0R36',
             exit_after_update=False,
             installation_path='SDMI/',
             requirements=['XXMI'],
